@@ -1,6 +1,6 @@
 {
   "name": "file-backup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Makes rotating [file].0, [file].1 ... backups in the same directory",
   "main": "index.js",
   "scripts": {

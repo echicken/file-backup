@@ -45,12 +45,11 @@ function file_backup(file, levels, callback) {
     });
   });
 
-  return new Promise((res, rej) => {
-    sequence(funcs, err => {
-      err ? rej(err) : res(null);
-      if (typeof callback == 'function') callback(err);
-    });
+  const p = new Promise((res, rej) => {
+    sequence(funcs, err => err ? rej(err) : res(null));
   });
+  if (typeof callback == 'function') p.then(callback).catch(callback);
+  return p;
 
 }
 
